@@ -1,0 +1,115 @@
+body {
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: "Coustard", serif;
+  font-size: 40px;
+  margin-top: 30px;
+  font-weight: 400;
+  color: #005691;
+}
+
+h3 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  margin-right: 0px;
+}
+
+.forecast {
+  font-family: "Averia Libre", cursive;
+  font-size: 24px;
+  color: grey;
+}
+
+.shade {
+  color: #d3d6db;
+}
+
+.hourly {
+  color: #aaa6a4;
+}
+
+.section {
+  background: #ffcab0;
+}
+.daily {
+  color: #827055;
+}
+
+.bright {
+  color: #7971ea;
+}
+
+.temp-menu {
+  margin-bottom: 50px;
+}
+
+.weather-details {
+  margin: 20px auto;
+  max-width: 810px;
+  border: 1px solid grey;
+  padding: 25px;
+}
+
+.app-logo {
+  color: #5a4db2;
+  font-size: 40px;
+  padding: 15px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  position: relative;
+  bottom: 750px;
+  left: 500px;
+}
+
+.city {
+  font-size: 40px;
+  font-weight: 700;
+
+  position: relative;
+  bottom: 700px;
+  left: 620px;
+}
+.current-time {
+  color: #0fc9e7;
+  font-size: 25px;
+  position: relative;
+  bottom: 770px;
+  left: 550px;
+}
+
+.location {
+  position: relative;
+  bottom: 700px;
+  left: 580px;
+}
+
+.sunny {
+  margin-top: 30px;
+  font-size: 50px;
+  color: #929aab;
+}
+
+.search-box {
+  margin-top: 20px;
+}
+
+.icons {
+  font-size: 30px;
+}
+
+.app-styling {
+  line-height: 1;
+}
+
+.container {
+  background: linear-gradient(
+    111.5deg,
+    rgb(228, 247, 255) 21.9%,
+    rgb(255, 216, 194) 92.2%
+  );
+}
+.current {
+  margin-left: -40px;
+}
