@@ -124,6 +124,7 @@ function showCurrentTemp(response) {
   let windDesc = Math.round(response.data.wind.speed);
   let mainDesc = response.data.weather[0].description;
   let humid = response.data.main.humidity;
+  let weatherCondition = response.data.weather[0].icon;
   let tempLink = document.querySelector("#nowForecast");
   tempLink.innerHTML = currentTemperature;
   let speed = document.querySelector("#wind");
@@ -134,6 +135,11 @@ function showCurrentTemp(response) {
   currentHumidity.innerHTML = humid;
   let defaultLocation = document.querySelector("#blah");
   blah.innerHTML = `Results for ${response.data.name}`;
+  let weatherIcon = document.querySelector("#conditions");
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${weatherCondition}@2x.png`
+  );
 }
 
 function searchDefault(position) {

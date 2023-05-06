@@ -86,9 +86,8 @@ h3 {
 }
 
 .sunny {
-  margin-top: 30px;
-  font-size: 50px;
-  color: #929aab;
+  margin-top: 0px;
+  margin-bottom: 50px;
 }
 
 .search-box {
@@ -104,12 +103,12 @@ h3 {
 }
 
 .container {
-  background: linear-gradient(
-    111.5deg,
-    rgb(228, 247, 255) 21.9%,
-    rgb(255, 216, 194) 92.2%
-  );
+  background: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
 .current {
   margin-left: -40px;
+}
+
+.cap {
+  text-transform: capitalize;
 }
