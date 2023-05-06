@@ -132,14 +132,25 @@ showThis.addEventListener("submit", anyWhere);
 
 function unitConversion(event) {
   event.preventDefault();
-  let DisplayedFahrenheitTemp = document.querySelector("#nowForecast");
+  let displayedFahrenheitTemp = document.querySelector("#nowForecast");
   let showFahrenheitTemp = (defaultCelsiusTemperature * 9) / 5 + 32;
 
-  DisplayedFahrenheitTemp.innerHTML = Math.round(showFahrenheitTemp);
+  displayedFahrenheitTemp.innerHTML = Math.round(showFahrenheitTemp);
 }
 
 let fahrenheitConversion = document.querySelector("#fheit");
 fahrenheitConversion.addEventListener("click", unitConversion);
+
+function defaultTempUnit(event) {
+  event.preventDefault();
+  let tempOnLoad = document.querySelector("#nowForecast");
+  let showCelsiusTemp = defaultCelsiusTemperature;
+
+  tempOnLoad.innerHTML = Math.round(showCelsiusTemp);
+}
+
+let celsiusConversion = document.querySelector("#celsius");
+celsiusConversion.addEventListener("click", defaultTempUnit);
 
 function showCurrentTemp(response) {
   console.log(response);

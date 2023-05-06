@@ -25,8 +25,7 @@ h3 {
 
 .shade {
   font-size: 16px;
-  position: relative;
-  bottom: 10px;
+  bottom: 50px;
 }
 
 .hourly {
@@ -119,5 +118,13 @@ h3 {
 .conversion {
   font-size: 16px;
   position: relative;
-  bottom: 10px;
+  bottom: 20px;
+}
+
+.red {
+  text-decoration: none;
+}
+
+.config {
+  font-size: 48px;
 }
