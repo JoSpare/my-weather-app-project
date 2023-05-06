@@ -20,10 +20,13 @@ h3 {
   font-family: "Averia Libre", cursive;
   font-size: 24px;
   color: grey;
+  text-transform: capitalize;
 }
 
 .shade {
-  color: #d3d6db;
+  font-size: 16px;
+  position: relative;
+  bottom: 10px;
 }
 
 .hourly {
@@ -111,4 +114,10 @@ h3 {
 
 .cap {
   text-transform: capitalize;
+}
+
+.conversion {
+  font-size: 16px;
+  position: relative;
+  bottom: 10px;
 }

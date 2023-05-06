@@ -71,6 +71,7 @@ function showMyLocation(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  defaultCelsiusTemperature = response.data.main.temp;
 }
 
 function showLocation(position) {
@@ -112,6 +113,7 @@ function showSearchedTemp(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  defaultCelsiusTemperature = response.data.main.temp;
 }
 
 function anyWhere(event) {
@@ -127,6 +129,17 @@ function anyWhere(event) {
 
 let showThis = document.querySelector("form");
 showThis.addEventListener("submit", anyWhere);
+
+function unitConversion(event) {
+  event.preventDefault();
+  let DisplayedFahrenheitTemp = document.querySelector("#nowForecast");
+  let showFahrenheitTemp = (defaultCelsiusTemperature * 9) / 5 + 32;
+
+  DisplayedFahrenheitTemp.innerHTML = Math.round(showFahrenheitTemp);
+}
+
+let fahrenheitConversion = document.querySelector("#fheit");
+fahrenheitConversion.addEventListener("click", unitConversion);
 
 function showCurrentTemp(response) {
   console.log(response);
@@ -151,6 +164,7 @@ function showCurrentTemp(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  defaultCelsiusTemperature = response.data.main.temp;
 }
 
 function searchDefault(position) {
@@ -159,5 +173,7 @@ function searchDefault(position) {
   let apiLink = `https://api.openweathermap.org/data/2.5/weather?q=london&units=${unit}&appid=${apiKey}`;
   axios.get(`${apiLink}`).then(showCurrentTemp);
 }
+
+let defaultCelsiusTemperature = null;
 
 searchDefault("london");
