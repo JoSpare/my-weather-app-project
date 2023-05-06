@@ -66,6 +66,11 @@ function showMyLocation(response) {
   description.innerHTML = myForecast;
   sticky.innerHTML = humidityForecast;
   wind.innerHTML = windForecast;
+  let weatherIcon = document.querySelector("#conditions");
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function showLocation(position) {
@@ -102,6 +107,11 @@ function showSearchedTemp(response) {
   currentHumidity.innerHTML = humid;
   let defaultLocation = document.querySelector("#blah");
   blah.innerHTML = `Results for ${response.data.name}`;
+  let weatherIcon = document.querySelector("#conditions");
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function anyWhere(event) {
@@ -125,6 +135,7 @@ function showCurrentTemp(response) {
   let mainDesc = response.data.weather[0].description;
   let humid = response.data.main.humidity;
   let weatherCondition = response.data.weather[0].icon;
+  console.log(weatherCondition);
   let tempLink = document.querySelector("#nowForecast");
   tempLink.innerHTML = currentTemperature;
   let speed = document.querySelector("#wind");
@@ -138,7 +149,7 @@ function showCurrentTemp(response) {
   let weatherIcon = document.querySelector("#conditions");
   weatherIcon.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${weatherCondition}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
 
