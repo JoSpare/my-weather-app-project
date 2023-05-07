@@ -20,6 +20,9 @@ h3 {
   font-family: "Averia Libre", cursive;
   font-size: 24px;
   color: grey;
+}
+
+.cap:first-letter {
   text-transform: capitalize;
 }
 
@@ -95,10 +98,6 @@ h3 {
 }
 .current {
   margin-left: -40px;
-}
-
-.cap {
-  text-transform: capitalize;
 }
 
 .conversion {
