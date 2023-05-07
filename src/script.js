@@ -159,7 +159,6 @@ function showCurrentTemp(response) {
   let mainDesc = response.data.weather[0].description;
   let humid = response.data.main.humidity;
   let weatherCondition = response.data.weather[0].icon;
-  console.log(weatherCondition);
   let tempLink = document.querySelector("#nowForecast");
   tempLink.innerHTML = currentTemperature;
   let speed = document.querySelector("#wind");
