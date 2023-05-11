@@ -54,6 +54,27 @@ function showHourlyTemp(response) {
   console.log(response);
 }
 
+function displayForecastData() {
+  let newForcastElement = document.querySelector("#forecast-section");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["12:00", "15:00", "18:00", "21:00", "00:00", "03:00"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+<div class="col-2 shade">
+<div><h3>${day}</h3></div>
+<div><i class="fa-solid fa-cloud-sun icons"></i></div>
+<div><h3 class="hourly temp-menu">8°C</h3></div></div>
+`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  newForcastElement.innerHTML = forecastHTML;
+}
+
 function showMyLocation(response) {
   console.log(response);
   let mySpot = Math.round(response.data.main.temp);
@@ -151,6 +172,8 @@ function defaultTempUnit(event) {
 
 let celsiusConversion = document.querySelector("#celsius");
 celsiusConversion.addEventListener("click", defaultTempUnit);
+
+displayForecastData();
 
 function showCurrentTemp(response) {
   console.log(response);
