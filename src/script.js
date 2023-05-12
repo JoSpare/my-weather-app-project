@@ -54,17 +54,44 @@ function showHourlyTemp(response) {
   console.log(response);
 }
 
+function showHourlyTemp(response) {
+  console.log(response);
+}
+
+function displayDailyForecastData() {
+  let newDayForecastElement = document.querySelector("#daily-forecast-display");
+
+  let dayHTML = `<div class="row">`;
+  let days = ["Sun", "Sat", "Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    dayHTML =
+      dayHTML +
+      `
+            <div class="col-2 section-design">
+            <div><h3>${day}</h3></div>
+            <div><i class="fa-solid fa-sun icons"></i></div>
+            <div>
+              <h3><span>18°</span> <span class="hourly temp-menu">8°</span></h3>
+            </div></div>
+`;
+  });
+
+  dayHTML = dayHTML + `</div>`;
+
+  newDayForecastElement.innerHTML = dayHTML;
+}
+
 function displayForecastData() {
-  let newForcastElement = document.querySelector("#forecast-section");
+  let newForecastElement = document.querySelector("#forecast-section");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["12:00", "15:00", "18:00", "21:00", "00:00", "03:00"];
-  days.forEach(function (day) {
+  let hours = ["12:00", "15:00", "18:00", "21:00", "00:00", "03:00"];
+  hours.forEach(function (hour) {
     forecastHTML =
       forecastHTML +
       `
-<div class="col-2 shade">
-<div><h3>${day}</h3></div>
+<div class="col-2 shade section-design">
+<div><h3>${hour}</h3></div>
 <div><i class="fa-solid fa-cloud-sun icons"></i></div>
 <div><h3 class="hourly temp-menu">8°C</h3></div></div>
 `;
@@ -72,7 +99,7 @@ function displayForecastData() {
 
   forecastHTML = forecastHTML + `</div>`;
 
-  newForcastElement.innerHTML = forecastHTML;
+  newForecastElement.innerHTML = forecastHTML;
 }
 
 function showMyLocation(response) {
@@ -172,6 +199,8 @@ function defaultTempUnit(event) {
 
 let celsiusConversion = document.querySelector("#celsius");
 celsiusConversion.addEventListener("click", defaultTempUnit);
+
+displayDailyForecastData();
 
 displayForecastData();
 
