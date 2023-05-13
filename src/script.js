@@ -58,7 +58,8 @@ function showHourlyTemp(response) {
   console.log(response);
 }
 
-function displayDailyForecastData() {
+function displayDailyForecastData(response) {
+  console.log(response);
   let newDayForecastElement = document.querySelector("#daily-forecast-display");
 
   let dayHTML = `<div class="row">`;
@@ -200,9 +201,15 @@ function defaultTempUnit(event) {
 let celsiusConversion = document.querySelector("#celsius");
 celsiusConversion.addEventListener("click", defaultTempUnit);
 
-displayDailyForecastData();
-
 displayForecastData();
+
+function getOpenWeatherData(coordinates) {
+  let apiKey = "f81614abe2395d5dfecd45b9298041de";
+  let unit = "metric";
+  let apiLink = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=${unit}&appid=${apiKey}`;
+  console.log(apiLink);
+  axios.get(apiLink).then(displayDailyForecastData);
+}
 
 function showCurrentTemp(response) {
   console.log(response);
@@ -227,6 +234,8 @@ function showCurrentTemp(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   defaultCelsiusTemperature = response.data.main.temp;
+
+  getOpenWeatherData(response.data.coord);
 }
 
 function searchDefault(position) {
