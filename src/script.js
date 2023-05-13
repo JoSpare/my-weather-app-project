@@ -99,20 +99,54 @@ function displayDailyForecastData(response) {
   newDayForecastElement.innerHTML = dayHTML;
 }
 
-function displayForecastData() {
+function updateHour(timestamp) {
+  let hour = new Date(timestamp * 1000);
+
+  let minute = new Date(timestamp * 1000);
+  let hours = hour.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = minute.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let timeString = `${hours}:${minutes}`;
+
+  return timeString;
+}
+
+function displayForecastData(response) {
+  let everyHourForecast = response.data.hourly;
+  console.log(everyHourForecast);
   let newForecastElement = document.querySelector("#forecast-section");
 
   let forecastHTML = `<div class="row">`;
-  let hours = ["12:00", "15:00", "18:00", "21:00", "00:00", "03:00"];
-  hours.forEach(function (hour) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  everyHourForecast.forEach(function (responseHour, index) {
+    if (
+      index == 1 ||
+      index == 4 ||
+      index == 7 ||
+      index == 10 ||
+      index == 13 ||
+      index == 16
+    ) {
+      forecastHTML =
+        forecastHTML +
+        `
 <div class="col-2 shade section-design">
-<div><h3>${hour}</h3></div>
-<div><i class="fa-solid fa-cloud-sun icons"></i></div>
-<div><h3 class="hourly temp-menu">8°C</h3></div></div>
+<div><h3>${updateHour(responseHour.dt)}</h3></div>
+<div><img src="https://openweathermap.org/img/wn/${
+          responseHour.weather[0].icon
+        }@2x.png" width="45"></></div>
+<div><h3 class="hourly temp-menu">${Math.round(
+          responseHour.temp
+        )}°</h3></div></div>
 `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -220,14 +254,13 @@ function defaultTempUnit(event) {
 let celsiusConversion = document.querySelector("#celsius");
 celsiusConversion.addEventListener("click", defaultTempUnit);
 
-displayForecastData();
-
 function getOpenWeatherData(coordinates) {
   let apiKey = "f81614abe2395d5dfecd45b9298041de";
   let unit = "metric";
   let apiLink = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=${unit}&appid=${apiKey}`;
   console.log(apiLink);
   axios.get(apiLink).then(displayDailyForecastData);
+  axios.get(apiLink).then(displayForecastData);
 }
 
 function showCurrentTemp(response) {
