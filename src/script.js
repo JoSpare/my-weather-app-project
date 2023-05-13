@@ -58,23 +58,40 @@ function showHourlyTemp(response) {
   console.log(response);
 }
 
+function updatedDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayDailyForecastData(response) {
-  console.log(response);
+  let everydayForecast = response.data.daily;
+  console.log(everydayForecast);
   let newDayForecastElement = document.querySelector("#daily-forecast-display");
 
   let dayHTML = `<div class="row">`;
-  let days = ["Sun", "Sat", "Mon", "Tue", "Wed", "Thu"];
-  days.forEach(function (day) {
-    dayHTML =
-      dayHTML +
-      `
+
+  everydayForecast.forEach(function (responseDay, index) {
+    if (index < 6) {
+      dayHTML =
+        dayHTML +
+        `
             <div class="col-2 section-design">
-            <div><h3>${day}</h3></div>
-            <div><i class="fa-solid fa-sun icons"></i></div>
+            <div><h3>${updatedDay(responseDay.dt)}</h3></div>
+            <div><img src="https://openweathermap.org/img/wn/${
+              responseDay.weather[0].icon
+            }@2x.png" width="45"></></div>
             <div>
-              <h3><span>18°</span> <span class="hourly temp-menu">8°</span></h3>
+              <h3><span>${Math.round(
+                responseDay.temp.max
+              )}°</span> <span class="hourly temp-menu">${Math.round(
+          responseDay.temp.min
+        )}°</span></h3>
             </div></div>
 `;
+    }
   });
 
   dayHTML = dayHTML + `</div>`;
@@ -121,6 +138,7 @@ function showMyLocation(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   defaultCelsiusTemperature = response.data.main.temp;
+  getOpenWeatherData(response.data.coord);
 }
 
 function showLocation(position) {
@@ -163,6 +181,7 @@ function showSearchedTemp(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   defaultCelsiusTemperature = response.data.main.temp;
+  getOpenWeatherData(response.data.coord);
 }
 
 function anyWhere(event) {
