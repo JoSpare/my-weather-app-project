@@ -79,14 +79,12 @@ function displayDailyForecastData(response) {
         dayHTML +
         `
             <div class="col-1 section-design">
-            <div class="forecast-headings"><h3>${updatedDay(
-              responseDay.dt
-            )}</h3></div>
+            <div class="bright"><h3>${updatedDay(responseDay.dt)}</h3></div>
             <div><img src="https://openweathermap.org/img/wn/${
               responseDay.weather[0].icon
-            }@2x.png" width="45"></></div>
+            }@2x.png" width="47"></></div>
             <div>
-              <h3><span class="daily-display">${Math.round(
+              <h3><span class="daily-display max-temp-headings">${Math.round(
                 responseDay.temp.max
               )}°</span><span class="hourly temp-menu daily-display">${Math.round(
           responseDay.temp.min
@@ -143,10 +141,10 @@ function displayForecastData(response) {
         `
         
 <div class="col-1 shade section-design">
-<div><h3>${updateHour(responseHour.dt)}</h3></div>
+<div class="bright"><h3>${updateHour(responseHour.dt)}</h3></div>
 <div><img src="https://openweathermap.org/img/wn/${
           responseHour.weather[0].icon
-        }@2x.png" width="45"></></div>
+        }@2x.png" width="47"></></div>
 <div><h3 class="hourly temp-menu">${Math.round(
           responseHour.temp
         )}°</h3></div></div>
