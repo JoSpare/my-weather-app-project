@@ -79,7 +79,9 @@ function displayDailyForecastData(response) {
         dayHTML +
         `
             <div class="col-1 section-design">
-            <div><h3>${updatedDay(responseDay.dt)}</h3></div>
+            <div class="forecast-headings"><h3>${updatedDay(
+              responseDay.dt
+            )}</h3></div>
             <div><img src="https://openweathermap.org/img/wn/${
               responseDay.weather[0].icon
             }@2x.png" width="45"></></div>

@@ -20,7 +20,7 @@ h3 {
 .forecast {
   font-family: "Averia Libre", cursive;
   font-size: 24px;
-  color: grey;
+  color: #f1efb9;
 }
 
 .cap:first-letter {
@@ -37,7 +37,8 @@ h3 {
 }
 
 .section {
-  background: #f8da5b;
+  background: #dece9c;
+  border-radius: 3px;
 }
 .daily {
   color: #827055;
@@ -72,7 +73,7 @@ h3 {
   left: 620px;
 }
 .current-time {
-  color: #757a79;
+  color: #d5daeb;
   font-size: 20px;
 }
 
@@ -100,7 +101,8 @@ h3 {
 }
 
 .container {
-  background: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  background-image: url(https://images.pexels.com/photos/2877066/pexels-photo-2877066.jpeg?auto=compress&cs=tinysrgb&w=600);
+  background-repeat: round;
 }
 .current {
   margin-left: -40px;
@@ -126,4 +128,8 @@ h3 {
 
 .daily-display-conditions {
   padding-right: 5px;
+}
+
+.forecast-headings {
+  color: #f7dead;
 }
