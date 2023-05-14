@@ -1,5 +1,6 @@
 body {
-  margin: 0 auto;
+  margin: 20px auto;
+  max-width: 810px;
 }
 
 h1 {
@@ -47,7 +48,8 @@ h3 {
 }
 
 .section-design {
-  text-align: center;
+  text-align: centre;
+  padding: 0px 46px 0px 46px;
 }
 
 .temp-menu {
@@ -58,7 +60,7 @@ h3 {
   margin: 20px auto;
   max-width: 810px;
   border: 1px solid grey;
-  padding: 25px;
+  padding: 15px;
 }
 
 .city {
@@ -116,4 +118,12 @@ h3 {
 
 .config {
   font-size: 48px;
+}
+
+.daily-display {
+  padding-right: 10px;
+}
+
+.daily-display-conditions {
+  padding-right: 5px;
 }

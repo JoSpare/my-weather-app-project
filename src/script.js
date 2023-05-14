@@ -74,19 +74,19 @@ function displayDailyForecastData(response) {
   let dayHTML = `<div class="row">`;
 
   everydayForecast.forEach(function (responseDay, index) {
-    if (index < 6) {
+    if (index < 8) {
       dayHTML =
         dayHTML +
         `
-            <div class="col-2 section-design">
+            <div class="col-1 section-design">
             <div><h3>${updatedDay(responseDay.dt)}</h3></div>
             <div><img src="https://openweathermap.org/img/wn/${
               responseDay.weather[0].icon
             }@2x.png" width="45"></></div>
             <div>
-              <h3><span>${Math.round(
+              <h3><span class="daily-display">${Math.round(
                 responseDay.temp.max
-              )}°</span> <span class="hourly temp-menu">${Math.round(
+              )}°</span><span class="hourly temp-menu daily-display">${Math.round(
           responseDay.temp.min
         )}°</span></h3>
             </div></div>
@@ -127,17 +127,20 @@ function displayForecastData(response) {
 
   everyHourForecast.forEach(function (responseHour, index) {
     if (
-      index == 1 ||
-      index == 4 ||
-      index == 7 ||
-      index == 10 ||
-      index == 13 ||
-      index == 16
+      index == 0 ||
+      index == 3 ||
+      index == 6 ||
+      index == 9 ||
+      index == 12 ||
+      index == 15 ||
+      index == 18 ||
+      index == 21
     ) {
       forecastHTML =
         forecastHTML +
         `
-<div class="col-2 shade section-design">
+        
+<div class="col-1 shade section-design">
 <div><h3>${updateHour(responseHour.dt)}</h3></div>
 <div><img src="https://openweathermap.org/img/wn/${
           responseHour.weather[0].icon
